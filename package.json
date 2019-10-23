@@ -1,0 +1,27 @@
+{
+    "name": "circle-ci-tutorial",
+    "version": "1.0.0",
+    "description": "",
+    "main": "test.js",
+    "scripts": {
+        "test": "TEST_MODE=true NODE_ENV=local DB_PASSWORD=pizza1234 mocha **/*.spec.js",
+        "api": "cp /src /dist",
+        "build": "mkdir dist && npm run api"
+    },
+    "author": "",
+    "devDependencies": {
+        "cross-env": "^5.2.0",
+        "riteway": "^6.0.3"
+    },
+    "dependencies": {
+        "mocha": "6.2.2",
+        "chai": "4.2.0",
+        "jsonwebtoken": "^8.5.0",
+        "jwks-rsa": "^1.6.0",
+        "moment": "^2.24.0",
+        "mysql2": "^1.6.4",
+        "node-ses": "^2.2.1",
+        "stripe": "^6.25.1",
+        "uuidv4": "^3.0.1"
+    }
+}
