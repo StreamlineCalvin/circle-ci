@@ -73,6 +73,9 @@ provider:
 functions:
   hello:
     handler: handler.hello
+    environment:
+      privatePemKey: ${ssm:private_pem~true}
+      publicPemKey: ${ssm:public_pem~true}
     
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
@@ -111,9 +114,7 @@ functions:
 #            path: /hello
 
 #    Define function environment variables here
-   environment:
-      privatePemKey: ${ssm:private_pem~true}
-      publicPemKey: ${ssm:public_pem~true}
+
 #      variable2: value2
 
 # you can add CloudFormation resource templates here
