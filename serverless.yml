@@ -24,7 +24,7 @@ provider:
   name: aws
   runtime: nodejs10.x
 
-   iamRoleStatements:
+  iamRoleStatements:
    - Effect: "Allow"
      Action:
        - "ssm:GetParameters"
