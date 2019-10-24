@@ -29,13 +29,13 @@ provider:
      Action:
        - "ssm:GetParameters"
      Resource: 
-       - arn:aws:ssm:us-east-1:297958624369:parameter/private_pem
-       - arn:aws:ssm:us-east-1:297958624369:parameter/public_pem
-   - Effect: "Allow"
-     Action:
-       - "kms:Decrypt"
-     Resource:
-       - arn:aws:kms:us-east-1:297958624369:key/e03b548f-46ae-4696-8b48-01142d2389b0
+       - "arn:aws:ssm:us-east-1:297958624369:parameter/private_pem"
+       - "arn:aws:ssm:us-east-1:297958624369:parameter/public_pem"
+#    - Effect: "Allow"
+#      Action:
+#        - "kms:Decrypt"
+#      Resource:
+#        - "arn:aws:kms:us-east-1:297958624369:key/e03b548f-46ae-4696-8b48-01142d2389b0"
 
 # you can overwrite defaults here
 #  stage: dev
