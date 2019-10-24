@@ -24,6 +24,19 @@ provider:
   name: aws
   runtime: nodejs10.x
 
+   iamRoleStatements:
+   - Effect: "Allow"
+     Action:
+       - "ssm:GetParameters"
+     Resource: 
+       - arn:aws:ssm:us-east-1:297958624369:parameter/private_pem
+       - arn:aws:ssm:us-east-1:297958624369:parameter/public_pem
+   - Effect: "Allow"
+     Action:
+       - "kms:Decrypt"
+     Resource:
+       - arn:aws:kms:us-east-1:297958624369:key/e03b548f-46ae-4696-8b48-01142d2389b0
+
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -60,6 +73,7 @@ provider:
 functions:
   hello:
     handler: handler.hello
+    
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -97,7 +111,9 @@ functions:
 #            path: /hello
 
 #    Define function environment variables here
-#    environment:
+   environment:
+      privatePemKey: ${ssm:private_pem~true}
+      publicPemKey: ${ssm:public_pem~true}
 #      variable2: value2
 
 # you can add CloudFormation resource templates here
